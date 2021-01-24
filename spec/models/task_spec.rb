@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.describe Task, type: :model do
   describe 'validation' do
     it 'is valid with all attributes' do
-      expect(FactoryBot.build(:task)).to be_valid
+      task = build(:task)
+      expect(task).to be_valid
+      expect(task.errors).to be_empty
     end
 
     it 'is invalid without title' do
@@ -27,7 +29,9 @@ RSpec.describe Task, type: :model do
 
     it 'is valid with another title' do
       task = FactoryBot.create(:task)
-      expect(FactoryBot.build(:task)).to be_valid
+      task2 = FactoryBot.build(:task)
+      expect(task2).to be_valid
+      expect(task2.errors).to be_empty
     end
 
   end
