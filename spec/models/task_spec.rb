@@ -33,6 +33,5 @@ RSpec.describe Task, type: :model do
       expect(task_with_another_title).to be_valid
       expect(task_with_another_title.errors).to be_empty
     end
-
   end
 end
